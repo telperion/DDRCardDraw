@@ -90,6 +90,7 @@ export function SongCard(props: Props) {
     diffAbbr,
     diffColor,
     level,
+    drawGroup,
     jacket,
     flags,
   } = replacedWith || chart;
@@ -207,7 +208,7 @@ export function SongCard(props: Props) {
           <div className={styles.bpm}>{bpm} BPM</div>
           {flags.includes("shock") && <ShockBadge />}
           <div className={styles.difficulty}>
-            {diffAbbr} {level}
+            {diffAbbr} {drawGroup && (drawGroup >= 12 && ["12L", "12M", "12H"][drawGroup-12] || drawGroup) || level}
           </div>
         </div>
       </Popover>
