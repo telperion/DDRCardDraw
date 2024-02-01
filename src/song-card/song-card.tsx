@@ -208,7 +208,11 @@ export function SongCard(props: Props) {
           <div className={styles.bpm}>{bpm} BPM</div>
           {flags.includes("shock") && <ShockBadge />}
           <div className={styles.difficulty}>
-            {diffAbbr} {drawGroup && (drawGroup >= 12 && ["12L", "12M", "12H"][drawGroup-12] || drawGroup) || level}
+            {diffAbbr}{" "}
+            {(drawGroup &&
+              ((drawGroup >= 12 && ["12L", "12M", "12H"][drawGroup - 12]) ||
+                drawGroup)) ||
+              level}
           </div>
         </div>
       </Popover>
